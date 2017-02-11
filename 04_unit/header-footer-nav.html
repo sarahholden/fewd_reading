@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Fonts and Text | Fundamentals</title>
+        <title>Header, Footer, Nav | Fundamentals</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -20,10 +20,8 @@
         
     
     
-    <link rel="next" href="../03_unit/classes-and-ids.html" />
     
-    
-    <link rel="prev" href="../03_unit/adding-color.html" />
+    <link rel="prev" href="../04_unit/the-box-model.html" />
     
 
         
@@ -42,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.2" data-basepath=".." data-revision="Sat Feb 11 2017 13:18:54 GMT-0800 (PST)">
+    <div class="book" data-level="4.4" data-basepath=".." data-revision="Sat Feb 11 2017 13:18:54 GMT-0800 (PST)">
     
 
 <div class="book-summary">
@@ -220,7 +218,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.2" data-path="03_unit/fonts-and-text.html">
+        <li class="chapter " data-level="3.2" data-path="03_unit/fonts-and-text.html">
             
                 
                     <a href="../03_unit/fonts-and-text.html">
@@ -361,7 +359,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="04_unit/header-footer-nav.html">
+        <li class="chapter active" data-level="4.4" data-path="04_unit/header-footer-nav.html">
             
                 
                     <a href="../04_unit/header-footer-nav.html">
@@ -472,94 +470,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p><strong>Fundamentals Unit 4</strong></p>
+                        <p><strong>WDI Fundamentals Unit 5</strong></p>
 <hr>
-<h1 id="fonts-and-text">Fonts and Text</h1>
-<p>As you learn to style your website, you&apos;ll want to get more creative with the types of fonts, as well as font size, style, and more. You&apos;ll also want to start aligning the text to suit your needs. Let&apos;s explore how to that!</p>
-<p><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/mpderhu818?seo=false&amp;videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="100%" height="100%"></iframe></div></div></p>
+<h1 id="header-footer-nav">Header, Footer, Nav</h1>
+<p><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/y4o61drbo1?seo=false&amp;videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="100%" height="100%"></iframe></div></div></p>
 <script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 
-
-<h4 id="more-on-css-text-treatment">More on CSS Text Treatment</h4>
-<p><strong>font-family</strong></p>
-<p>To adjust the font of your selected text element, use the font-family property. For the value, enter the name of the font to which you&#x2019;d like to alter your text. To be safe, try putting a comma after your selected font and enter a generic family as a fallback. If the web browser doesn&#x2019;t support the font you selected, it will choose the fallback. For example:</p>
-<pre><code class="lang-css"><span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-family</span>:<span class="hljs-value"> Arial, sans-serif</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p>If your selected font is more than one word, capitalize both words and put them in quotation marks:</p>
-<pre><code class="lang-css"><span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-family</span>:<span class="hljs-value"> <span class="hljs-string">&quot;Courier New&quot;</span>, monospace</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p><strong>font-size</strong></p>
-<p>To increase or decrease the spacial dimensions of your chosen text, use the font-size property. As a beginner, you&#x2019;ll want to enter pixel values for your font-size values, like so:</p>
-<pre><code class="lang-css"><span class="hljs-tag">h3</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">24px</span></span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p>As you become more advanced, try using percentages or ems instead of pixels. These can be pretty tricky, so you may want to wait until we cover them in Unit 9.</p>
-<p><strong>font-weight</strong></p>
-<p>To adjust the thickness of your selected text, use the font-weight property.</p>
-<p>As a beginner, you can enter values like &#x201C;normal&#x201D; to make your text thin and &#x201C;bold&#x201D; to make your text thick. As these values are not very specific, different browsers may interpret their display with slightly different outputs.</p>
-<pre><code class="lang-css"><span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> normal</span></span>;
-<span class="hljs-rule">}</span></span>
-
-<span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> bold</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p>Once you get more practice, try using the numbers 100, 200, 300, 400, 500, 600, 700, 800, and 900 as values to gain more granular control. With this system, 400 is roughly equivalent to &#x201C;normal&#x201D; and 700 roughly equals &#x201C;bold.&#x201D;</p>
-<pre><code class="lang-css"><span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> <span class="hljs-number">400</span></span></span>;
-<span class="hljs-rule">}</span></span>
-
-<span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> <span class="hljs-number">700</span></span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p><strong>font-style</strong></p>
-<p>To make normal text italic, use the property font-style and the value &#x201C;italic.&#x201D; To reverse this effect, use the value &#x201C;normal.&#x201D;</p>
-<pre><code class="lang-css"><span class="hljs-tag">a</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-style</span>:<span class="hljs-value"> italic</span></span>;
-<span class="hljs-rule">}</span></span>
-
-<span class="hljs-tag">a</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">font-style</span>:<span class="hljs-value"> normal</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p><strong>text-align</strong></p>
-<p>To adjust the positioning of a text element, use the CSS property text-align and one of the following values: left, right, center, or justify.</p>
-<pre><code class="lang-css"><span class="hljs-tag">body</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">text-align</span>:<span class="hljs-value"> center</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p><strong>text-decoration</strong></p>
-<p>To add an underline to normal text, use the CSS property text-decoration and the value &#x201C;underline.&#x201D;</p>
-<pre><code class="lang-css"><span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">text-decoration</span>:<span class="hljs-value"> underline</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p>To remove underlines, use the value &#x201C;none.&#x201D; This declaration is often applied to anchor tags.</p>
-<pre><code class="lang-css"><span class="hljs-tag">a</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">text-decoration</span>:<span class="hljs-value"> none</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<p>Less commonly used values include &#x201C;overline,&#x201D; which adds a line above text, and &#x201C;line-through,&#x201D; which strikes a line through your text.</p>
-<p><strong>text-transform</strong></p>
-<p>To adjust capitalization in a selected text element, use the text-transform property. Values for this property include &#x201C;uppercase&#x201D; to capitalize every letter, &#x201C;lowercase&#x201D; to uncapitalize every letter, and &#x201C;capitalize&#x201D; to make the first letter of every word in the selected text uppercase.</p>
-<pre><code class="lang-css"><span class="hljs-tag">h1</span> <span class="hljs-rules">{
-     <span class="hljs-rule"><span class="hljs-attribute">text-transform</span>:<span class="hljs-value"> uppercase</span></span>;
-<span class="hljs-rule">}</span></span>
-</code></pre>
-<h4 id="external-fonts">External Fonts</h4>
-<p>Did you know you can also link to external fonts in your HTML? Let&apos;s try it!</p>
-<p>There are three parts to loading up a web font with HTML. The href tells the browser where the font is.</p>
-<p><code>&lt;link href=&quot;http://fonts.googleapis.com/css?family=Open+Sans:400,800&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</code></p>
-<p>Here we want to open Sans font, in two weights: 400 for body text, and 800 for headings. The rest of this tells the HTML that the link goes to a CSS stylesheet. Follow the link to take a peek!</p>
+<h4 id="checkpoint">Checkpoint</h4>
+<ul>
+<li>Why do we want to avoid using <code>header</code> or <code>footer</code> in a <code>div</code>?</li>
+</ul>
 <hr>
-<p><a href="classes-and-ids.html">On to the next lesson.</a></p>
+<p><a href="layout-basics-quiz.md">Ready to test your knowledge?</a></p>
 
                     
                     </section>
@@ -570,10 +492,8 @@
         </div>
 
         
-        <a href="../03_unit/adding-color.html" class="navigation navigation-prev " aria-label="Previous page: Adding Color"><i class="fa fa-angle-left"></i></a>
+        <a href="../04_unit/the-box-model.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: The Box Model"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../03_unit/classes-and-ids.html" class="navigation navigation-next " aria-label="Next page: Classes and IDs"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
