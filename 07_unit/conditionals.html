@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Intro to Programming Languages | Fundamentals</title>
+        <title>Conditionals | Fundamentals</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -20,10 +20,8 @@
         
     
     
-    <link rel="next" href="../01_unit/think-like-a-developer.html" />
     
-    
-    <link rel="prev" href="../01_unit/developer-foundations-intro.html" />
+    <link rel="prev" href="../07_unit/logical-operators-booleans.html" />
     
 
         
@@ -42,7 +40,7 @@
     
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Thu Feb 16 2017 13:04:31 GMT-0800 (PST)">
+    <div class="book" data-level="5.6" data-basepath=".." data-revision="Thu Feb 16 2017 13:04:31 GMT-0800 (PST)">
     
 
 <div class="book-summary">
@@ -88,7 +86,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1" data-path="01_unit/intro-to-programming-languages.html">
+        <li class="chapter " data-level="1.1" data-path="01_unit/intro-to-programming-languages.html">
             
                 
                     <a href="../01_unit/intro-to-programming-languages.html">
@@ -472,7 +470,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" data-path="07_unit/conditionals.html">
+        <li class="chapter active" data-level="5.6" data-path="07_unit/conditionals.html">
             
                 
                     <a href="../07_unit/conditionals.html">
@@ -583,53 +581,145 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p><strong>Fundamentals Unit 1</strong></p>
+                        <p><strong>WDI Fundamentals Unit 8</strong></p>
 <hr>
-<h1 id="intro-to-programming-languages">Intro to Programming Languages</h1>
-<p>In the next few units, we&apos;ll learn about the three front-end languages: HTML, CSS and JavaScript. Before we dig in, let&apos;s take a look at the web ecosystem and how these languages fit in.</p>
-<h2 id="web-production-workflow">Web Production Workflow</h2>
-<h4 id="how-does-an-idea-become-a-fully-developed-website">How does an idea become a fully-developed website?</h4>
-<p>Building a website begins with <strong>User Experience Design</strong>, often called UX Design or simply UX. The goal of UX Design is to make the site easy and exciting to use. A UX Designer will analyze the larger purpose of the site, and create sketches called wireframes that detail out every functionality the site needs in order to fulfill that purpose. Wireframes show how a user can navigate the different pages and sections of a site using basic layout and annotations. Wireframes are the blueprints of a website.</p>
-<p><img src="assets/intro-to-programming-languages/wireframe.jpg" alt=""></p>
-<p>When the wireframes are complete, they&apos;re often passed off to the <strong>Visual Design</strong> and <strong>Developer</strong> teams simultaneously. The Visual Designers decide how the site will look using layout, color, typography, images, video and more. Visual design is an important aspect of the web prodcution process&#x2013; not only for beautifying the web&#x2013; but because certain design elements can largely impact the usability of the site.</p>
-<p>As a general rule, a Developer team consists of <strong>Front End</strong> and <strong>Back End</strong> developers. Front End developers bring the designs to life with HTML, CSS, and JS. Back end developers give the website a &quot;memory&quot; by storing data using languages like PHP, Python, and Ruby.</p>
-<h2 id="front-end-vs-back-end">Front End vs Back End</h2>
-<p>Let&apos;s talk in more detail how the Front End differs from the Back End. Think of a web app like a retail clothing store.</p>
-<p>The Front End is the store itself&#x2009;&#x2014;&#x2009;it contains the things with which the buyer interacts. The store has an efficient structure (HTML); it has been fashionably styled and lit (CSS); and you can interact with it by trying on or purchasing clothes (JavaScript).</p>
-<p>Then, there are all the parts of the store you don&#x2019;t see: the loading dock where products are shipped, the break room where the staff schedule is posted, or the office where the accountant handles the finances. This is the Back End of the store.</p>
-<h4 id="front-end-languages">Front-end Languages</h4>
-<p>The &quot;Three Amigos&quot; or the three front-end languages are HTML, CSS, and JavaScript. Front End </p>
+<h1 id="conditionals">Conditionals</h1>
+<p>The comparison and logical operators we covered in the last lesson are useful in JS because they help us compare different <em>conditions</em> to one another.</p>
+<p>Take a look at this short <a href="https://generalassembly.wistia.com/medias/afk2hatfe0" target="_blank">video</a> that describes how conditional statements tie in with the material we just covered.</p>
+<p><iframe src="//fast.wistia.net/embed/iframe/afk2hatfe0?seo=false" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360"></iframe></p>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
+
+
+<p><strong>Conditions</strong> are usually made up of a mathematical statement that uses an operator (the signs that allow us to make the comparison, such as equals, less than, or greater than).</p>
+<p>Conditions are statements that make comparisons that evaluate to true or false in order to control the flow of the program.</p>
+<p>Take a look:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (grade &gt;= <span class="hljs-number">80</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Congrats! You&apos;ve passed this class.&quot;</span>);
+}
+</code></pre>
+<p>Here the condition is the comparison that is within the parentheses:</p>
+<pre><code class="lang-js">grade &gt;= <span class="hljs-number">80</span>
+</code></pre>
+<h4 id="how-conditions-are-used">How Conditions Are Used</h4>
+<p>When information is incorrect, JavaScript can help identify the comparison as false.</p>
+<p>So if you&apos;re filling out a form that requires your birthday, you can&apos;t say you were born in the year 2045 because that year hasn&apos;t occurred yet.</p>
+<p>You also can&apos;t say that you were born on December 45th, because that day doesn&apos;t exist.</p>
+<p>When you try entering information like this, JS will identify that it is wrong by comparing the information you entered against information that has been provided as accurate.</p>
+<p><img src="assets/conditionals/form-x.png" width="300px"></p>
+<p>Making comparisons is almost like asking questions about the information the user has entered.</p>
+<p>Is the year less than or equal to 2017 and more than or equal to 1900? If the answer to this question is &quot;true,&quot; then we know the user has entered a valid year, and that he or she was born somewhere between 1900 and 2017.</p>
+<p><img src="assets/conditionals/form-check.png" width="300px"></p>
+<p>Did you notice how we used the term &quot;less than or equal to&quot; to check, or compare, two things? This is how our comparison operators help us make decisions.</p>
+<h2 id="conditional-statements">Conditional Statements</h2>
+<p>Now we&apos;re going to learn a bit more about conditional statements and how we can use them to control the flow of a program.</p>
+<p>We can use a conditional statements to skip over a block of code if it does not pass a boolean expression.</p>
+<p>Let&apos;s say our condition is <code>10 &gt; 4</code>.</p>
+<p>This is an example of a condition that the interpreter will evaluate as either <code>true</code> or <code>false</code>.</p>
+<p>Once we have this type of condition, we can add in our conditional statements to take one path if the condition is true and another if the condition is false.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (condition) {
+  <span class="hljs-comment">// Take this path when the condition is true!</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// Take the other path when the condition is false!</span>
+}
+</code></pre>
+<h4 id="-if-else-statements"><code>if...else</code> statements</h4>
+<p>Let&apos;s start by looking at <code>if...else</code> statements.</p>
+<p>As you may have guessed from its name, the first component of the <code>if...else</code> statement is the <em>if statement</em>.</p>
+<p>An <em>if statement</em> allows us to check whether or not a condition is true and, if it is, run our code.</p>
+<p>The conditional below is an <code>if</code> statement.</p>
+<p>An <code>if</code> statement will take in a condition and, if that condition is <em>truthy</em>, run whatever code you specify.</p>
+<p><img src="assets/conditionals/condition_zoom.png" width="400px"></p>
+<h4 id="flow-charts">Flow Charts</h4>
+<p>You&apos;re probably already familiar with a common real-world application of the <code>if</code> statement: the <em>flow chart</em>.</p>
+<p>A <em>flow chart</em> is a visual diagram that tells us how to behave depending on a certain set of conditions.</p>
+<p><img src="assets/conditionals/flow_chart.png" width="500px"></p>
+<p>If we were to draw a flowchart to describe the following if statement:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">10</span>) {
+  x += <span class="hljs-number">10</span>;
+  y += <span class="hljs-number">10</span>;
+}
+</code></pre>
+<p>We might come up with something like this:</p>
+<p><img src="assets/conditionals/flow_chart_1.png" width="300px"></p>
+<p>As you can see, a person making their way through this diagram would need to make a decision.</p>
+<p>Depending on whether or not our condition is <em>truthy</em>, he or she would either enter the block of code or skip over it entirely.</p>
+<h4 id="else-if-statements">Else If Statements</h4>
+<p>Adding an <code>else if</code> to our <code>if</code> statement allows us to specify a second condition to test.</p>
+<p>However, this second condition will <em>only</em> be tested if the first condition fails.</p>
+<p>For example, let&apos;s say we want to create a program that will calculate letter grades based on cumulative homework scores for a class:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (grade &gt;= <span class="hljs-number">90</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Student received an A.&quot;</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (grade &gt;= <span class="hljs-number">80</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Student received a B&quot;</span>);
+}
+</code></pre>
+<p>Notice how we are now able to check to see if multiple conditions are true.</p>
+<p>We can add as many <code>else if</code> statements as we want. You just keep tacking them on.</p>
+<p>These statements allow us to add complex logic to our program, which can check for multiple conditions and specify an action for each result, making our program seem more intuitive and user friendly.</p>
+<p><img src="assets/conditionals/flow_chart_2.png" width="450px"></p>
+<h4 id="else-statements">Else Statements</h4>
+<p>At this point, if none of the conditions we check for are <code>true</code>, then nothing will happen.</p>
+<p>We need a way to check several conditions and have the ability to move forward if none of these conditions are <code>true</code> &#x2014; a default, or fallback, course of action.</p>
+<p>To specify behavior for this outcome, we can add an <code>else</code> to the end of our statement.</p>
+<p>Let&apos;s look at an example of an else statement:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (grade &gt;= <span class="hljs-number">90</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Student received an A.&quot;</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (grade &gt;= <span class="hljs-number">80</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Student received a B.&quot;</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (grade &gt;= <span class="hljs-number">70</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Student received a C.&quot;</span>);
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Student failed :(&quot;</span>);
+}
+</code></pre>
+<h3 id="test-yourself">Test Yourself</h3>
+<p>Consider the following conditional statement:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> temp = <span class="hljs-number">75</span>;
+
+<span class="hljs-keyword">if</span> (temp &gt; <span class="hljs-number">70</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It is hot outside!&quot;</span>);
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (temp &gt; <span class="hljs-number">50</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;It is warm outside.&quot;</span>);
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Brr! It&apos;s freezing out there!&quot;</span>);
+}
+</code></pre>
 <ul>
-<li><strong>HTML</strong> is like a noun: responsible for defining the content on the page, like images, headers, and paragraphs</li>
-<li><strong>CSS</strong> is like an adjective: responsible for describing styles like layout, size, and color of the content</li>
-<li><strong>JavaScript</strong> is like a verb: responsible for the behaviors and actions of the content, like drop-down menus</li>
+<li>What will be logged to the console?</li>
+<li>What will be logged to the console if ...<ul>
+<li><code>temp</code> is 50?</li>
+<li><code>temp</code> is 4?</li>
+<li><code>temp</code> is 51?</li>
 </ul>
-<h4 id="back-end-languages">Back-end Languages</h4>
-<p>Unlike Front End, which has only three languages, there are multiple back-end languages for the web: Ruby (Ruby on Rails), Node.js, PHP, Python, C++, and more. Java is another back-end language you may have heard of. Java is <em>not</em> JavaScript! Many novice programmers confuse the two, but they have very different functionalities.</p>
-<p>Responsibilities of the back-end languages include:</p>
-<ul>
-<li>Giving the application/webpage a &apos;memory&apos;: storing data, like usernames and passwords</li>
-<li>Talking to the database: getting, adding, removing, and updating data; like password resets</li>
-<li>Handling page requests: sending the correct page to the user, like a version of the home page where the user is logged in vs logged out</li>
-<li>Authenticating users: enabling users to access different areas of a site, like logging into an account</li>
+</li>
+<li>Under what circumstances will &quot;Brr! It&apos;s freezing out there!&quot; be logged to the console?</li>
 </ul>
-<h4 id="front-end-and-back-end-together">Front End and Back End Together</h4>
-<p>Let&apos;s imagine a user has logged in to their bank&apos;s website to view the balance on her checking account. Everything she sees on the screen is front-end code.</p>
-<p><img src="assets/intro-to-programming-languages/front-end-code-1.jpg" alt=""></p>
-<p>When she selects &apos;Checking Account&apos;, the back-end code kicks in. The website now finds her user information, which has been stored in a database. </p>
-<p><img src="assets/intro-to-programming-languages/back-end-code.jpg" alt=""></p>
-<p>The server returns a response containing our user&apos;s checking account information. Then the front-end takes over once again, displaying her information with HTML, CSS, and JS.</p>
-<p><img src="assets/intro-to-programming-languages/front-end-code-2.jpg" alt=""></p>
-<h2 id="test-yourself">Test yourself</h2>
-<p>Objective: Distinguish Between HTML, CSS, and JS</p>
-<p>Visit lyft.com. Try to fill in these blanks:</p>
-<ol>
-<li>The words &#x201C;Rides in Minutes&#x201D; appears due to <strong>__</strong>?</li>
-<li>The reason for which &#x201C;Rides in Minutes&#x201D;  is centered and white is due to <strong><em>_</em></strong>?</li>
-<li>Hover over the word &#x201C;Explore&#x201D; in the navigation menu. That animation is most likely due to <strong><em>_</em></strong>?</li>
-</ol>
-<hr>
-<p>Now that we&apos;ve seen how HTML, CSS and JavaScript fit together, let&apos;s take a look at how you can start to <a href="think-like-a-developer.html">think like a developer</a></p>
+<p>Try copying that whole statement into JS Bin and testing out different values for <code>temp</code>. Were your answers correct?</p>
+<p>You may need to refresh the page if you cannot see the JS Bin Console.</p>
+<p><a class="jsbin-embed" href="https://jsbin.com/qiqufo/1/embed?console" target="_blank">JS Bin on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?3.35.12"></script></p>
+<h4 id="note-assignment-vs-comparison-operator">Note: Assignment vs. Comparison Operator</h4>
+<p>Within our conditions, we will often need to check to see whether or not two values are equal to one another, and perform an action based on the results.</p>
+<p>Example:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (result === <span class="hljs-literal">true</span>) {
+  <span class="hljs-comment">// Congratulate the user on passing</span>
+}
+</code></pre>
+<p>Notice that we used a triple equals instead of a single equals in the condition.</p>
+<p>This is important to note, as confusing the assignment operator with the comparison operator is a common mistake for beginners.</p>
+<p><img src="assets/conditionals/assignment-vs-comparison.png" width="400px"></p>
+<p>Take a look at the following example:</p>
+<p>Here, we are not <em>comparing</em> <code>x</code> with the number 3. We&apos;re <em>assigning</em> the variable <code>x</code> the value of 3 by using <code>=</code> instead of <code>===</code>.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (x = <span class="hljs-number">3</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;boo&quot;</span>);
+}
+</code></pre>
+<p>Oops!</p>
+<p>If we wanted to see if <code>x</code> is equal to 3, we would use a <em>comparison</em> operator (the triple equals sign):</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (x === <span class="hljs-number">3</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;boo&quot;</span>);
+}
+</code></pre>
 
                     
                     </section>
@@ -640,10 +730,8 @@
         </div>
 
         
-        <a href="../01_unit/developer-foundations-intro.html" class="navigation navigation-prev " aria-label="Previous page: Developer Foundations"><i class="fa fa-angle-left"></i></a>
+        <a href="../07_unit/logical-operators-booleans.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Comparison and Logical Operators and Booleans"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../01_unit/think-like-a-developer.html" class="navigation navigation-next " aria-label="Next page: Think Like a Developer"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

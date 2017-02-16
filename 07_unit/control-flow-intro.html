@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Intro to Programming Languages | Fundamentals</title>
+        <title>Control Flow in JS | Fundamentals</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../01_unit/think-like-a-developer.html" />
+    <link rel="next" href="../07_unit/logical-operators-booleans.html" />
     
     
-    <link rel="prev" href="../01_unit/developer-foundations-intro.html" />
+    <link rel="prev" href="../07_unit/expressions-evals.html" />
     
 
         
@@ -42,7 +42,7 @@
     
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Thu Feb 16 2017 13:04:31 GMT-0800 (PST)">
+    <div class="book" data-level="5.4" data-basepath=".." data-revision="Thu Feb 16 2017 13:04:31 GMT-0800 (PST)">
     
 
 <div class="book-summary">
@@ -88,7 +88,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1" data-path="01_unit/intro-to-programming-languages.html">
+        <li class="chapter " data-level="1.1" data-path="01_unit/intro-to-programming-languages.html">
             
                 
                     <a href="../01_unit/intro-to-programming-languages.html">
@@ -442,7 +442,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="07_unit/control-flow-intro.html">
+        <li class="chapter active" data-level="5.4" data-path="07_unit/control-flow-intro.html">
             
                 
                     <a href="../07_unit/control-flow-intro.html">
@@ -583,53 +583,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p><strong>Fundamentals Unit 1</strong></p>
+                        <p><strong>WDI Fundamentals Unit 8</strong></p>
 <hr>
-<h1 id="intro-to-programming-languages">Intro to Programming Languages</h1>
-<p>In the next few units, we&apos;ll learn about the three front-end languages: HTML, CSS and JavaScript. Before we dig in, let&apos;s take a look at the web ecosystem and how these languages fit in.</p>
-<h2 id="web-production-workflow">Web Production Workflow</h2>
-<h4 id="how-does-an-idea-become-a-fully-developed-website">How does an idea become a fully-developed website?</h4>
-<p>Building a website begins with <strong>User Experience Design</strong>, often called UX Design or simply UX. The goal of UX Design is to make the site easy and exciting to use. A UX Designer will analyze the larger purpose of the site, and create sketches called wireframes that detail out every functionality the site needs in order to fulfill that purpose. Wireframes show how a user can navigate the different pages and sections of a site using basic layout and annotations. Wireframes are the blueprints of a website.</p>
-<p><img src="assets/intro-to-programming-languages/wireframe.jpg" alt=""></p>
-<p>When the wireframes are complete, they&apos;re often passed off to the <strong>Visual Design</strong> and <strong>Developer</strong> teams simultaneously. The Visual Designers decide how the site will look using layout, color, typography, images, video and more. Visual design is an important aspect of the web prodcution process&#x2013; not only for beautifying the web&#x2013; but because certain design elements can largely impact the usability of the site.</p>
-<p>As a general rule, a Developer team consists of <strong>Front End</strong> and <strong>Back End</strong> developers. Front End developers bring the designs to life with HTML, CSS, and JS. Back end developers give the website a &quot;memory&quot; by storing data using languages like PHP, Python, and Ruby.</p>
-<h2 id="front-end-vs-back-end">Front End vs Back End</h2>
-<p>Let&apos;s talk in more detail how the Front End differs from the Back End. Think of a web app like a retail clothing store.</p>
-<p>The Front End is the store itself&#x2009;&#x2014;&#x2009;it contains the things with which the buyer interacts. The store has an efficient structure (HTML); it has been fashionably styled and lit (CSS); and you can interact with it by trying on or purchasing clothes (JavaScript).</p>
-<p>Then, there are all the parts of the store you don&#x2019;t see: the loading dock where products are shipped, the break room where the staff schedule is posted, or the office where the accountant handles the finances. This is the Back End of the store.</p>
-<h4 id="front-end-languages">Front-end Languages</h4>
-<p>The &quot;Three Amigos&quot; or the three front-end languages are HTML, CSS, and JavaScript. Front End </p>
-<ul>
-<li><strong>HTML</strong> is like a noun: responsible for defining the content on the page, like images, headers, and paragraphs</li>
-<li><strong>CSS</strong> is like an adjective: responsible for describing styles like layout, size, and color of the content</li>
-<li><strong>JavaScript</strong> is like a verb: responsible for the behaviors and actions of the content, like drop-down menus</li>
-</ul>
-<h4 id="back-end-languages">Back-end Languages</h4>
-<p>Unlike Front End, which has only three languages, there are multiple back-end languages for the web: Ruby (Ruby on Rails), Node.js, PHP, Python, C++, and more. Java is another back-end language you may have heard of. Java is <em>not</em> JavaScript! Many novice programmers confuse the two, but they have very different functionalities.</p>
-<p>Responsibilities of the back-end languages include:</p>
-<ul>
-<li>Giving the application/webpage a &apos;memory&apos;: storing data, like usernames and passwords</li>
-<li>Talking to the database: getting, adding, removing, and updating data; like password resets</li>
-<li>Handling page requests: sending the correct page to the user, like a version of the home page where the user is logged in vs logged out</li>
-<li>Authenticating users: enabling users to access different areas of a site, like logging into an account</li>
-</ul>
-<h4 id="front-end-and-back-end-together">Front End and Back End Together</h4>
-<p>Let&apos;s imagine a user has logged in to their bank&apos;s website to view the balance on her checking account. Everything she sees on the screen is front-end code.</p>
-<p><img src="assets/intro-to-programming-languages/front-end-code-1.jpg" alt=""></p>
-<p>When she selects &apos;Checking Account&apos;, the back-end code kicks in. The website now finds her user information, which has been stored in a database. </p>
-<p><img src="assets/intro-to-programming-languages/back-end-code.jpg" alt=""></p>
-<p>The server returns a response containing our user&apos;s checking account information. Then the front-end takes over once again, displaying her information with HTML, CSS, and JS.</p>
-<p><img src="assets/intro-to-programming-languages/front-end-code-2.jpg" alt=""></p>
-<h2 id="test-yourself">Test yourself</h2>
-<p>Objective: Distinguish Between HTML, CSS, and JS</p>
-<p>Visit lyft.com. Try to fill in these blanks:</p>
-<ol>
-<li>The words &#x201C;Rides in Minutes&#x201D; appears due to <strong>__</strong>?</li>
-<li>The reason for which &#x201C;Rides in Minutes&#x201D;  is centered and white is due to <strong><em>_</em></strong>?</li>
-<li>Hover over the word &#x201C;Explore&#x201D; in the navigation menu. That animation is most likely due to <strong><em>_</em></strong>?</li>
-</ol>
-<hr>
-<p>Now that we&apos;ve seen how HTML, CSS and JavaScript fit together, let&apos;s take a look at how you can start to <a href="think-like-a-developer.html">think like a developer</a></p>
+<h2 id="control-flow-intro">Control Flow Intro</h2>
+<p>Programming is the practice of writing a set of instructions for our computer to execute. These are interpreted by our computer one at a time, in order. Sounds kind of like a recipe, right?</p>
+<p>Suppose, however, that we are trying to cook something complicated. For example, consider the following excerpt from &quot;French Toast &#xE0; la GA:&quot;</p>
+<blockquote>
+<p>...</p>
+<p>3) Whisk eggs, milk, honey, and kosher salt until eggs are no longer visible.</p>
+<p>4) Dip your bread slices in the custard. If you&apos;re using a pre-sliced loaf and the slices are thin, a short dip (just enough to coat both sides) should be enough. However, if your slices are thick, you may want to give the bread a minute or two to soak up the custard.</p>
+<p>5) Transfer the slices to your frying pan and cook on a medium-low heat until brown on the bottom.</p>
+<p>...</p>
+</blockquote>
+<p>Instructions like these require the cook to make decisions based on available data. For example, <em>if</em> the cook is using thin slices of bread, they should follow one set of instructions and <em>if</em> the cook is using thick slices, they will follow a separate set of instructions. </p>
+<p>In the context of programming, this is called <strong>control flow</strong>, because it specifies the flow of the computer&apos;s actions through the program.</p>
+<p>Watch this video to discover more about the role control flow plays in development.</p>
+<p><iframe src="//fast.wistia.net/embed/iframe/zhahjd0c7t?seo=false" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360"></iframe></p>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
+
+
+<p>Now we will look at how control flow is implemented in JavaScript. In particular, we&apos;ll focus on making decisions (conditionals).</p>
+<p><a href="logical-operators-booleans.html">On to the next lesson!</a></p>
 
                     
                     </section>
@@ -640,10 +615,10 @@
         </div>
 
         
-        <a href="../01_unit/developer-foundations-intro.html" class="navigation navigation-prev " aria-label="Previous page: Developer Foundations"><i class="fa fa-angle-left"></i></a>
+        <a href="../07_unit/expressions-evals.html" class="navigation navigation-prev " aria-label="Previous page: Expressions and Evaluations"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../01_unit/think-like-a-developer.html" class="navigation navigation-next " aria-label="Next page: Think Like a Developer"><i class="fa fa-angle-right"></i></a>
+        <a href="../07_unit/logical-operators-booleans.html" class="navigation navigation-next " aria-label="Next page: Comparison and Logical Operators and Booleans"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

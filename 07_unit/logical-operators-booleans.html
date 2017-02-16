@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Intro to Programming Languages | Fundamentals</title>
+        <title>Comparison and Logical Operators and Booleans | Fundamentals</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../01_unit/think-like-a-developer.html" />
+    <link rel="next" href="../07_unit/conditionals.html" />
     
     
-    <link rel="prev" href="../01_unit/developer-foundations-intro.html" />
+    <link rel="prev" href="../07_unit/control-flow-intro.html" />
     
 
         
@@ -42,7 +42,7 @@
     
 
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Thu Feb 16 2017 13:04:31 GMT-0800 (PST)">
+    <div class="book" data-level="5.5" data-basepath=".." data-revision="Thu Feb 16 2017 13:04:31 GMT-0800 (PST)">
     
 
 <div class="book-summary">
@@ -88,7 +88,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1" data-path="01_unit/intro-to-programming-languages.html">
+        <li class="chapter " data-level="1.1" data-path="01_unit/intro-to-programming-languages.html">
             
                 
                     <a href="../01_unit/intro-to-programming-languages.html">
@@ -457,7 +457,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" data-path="07_unit/logical-operators-booleans.html">
+        <li class="chapter active" data-level="5.5" data-path="07_unit/logical-operators-booleans.html">
             
                 
                     <a href="../07_unit/logical-operators-booleans.html">
@@ -583,53 +583,77 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p><strong>Fundamentals Unit 1</strong></p>
+                        <p><strong>WDI Fundamentals Unit 8</strong></p>
 <hr>
-<h1 id="intro-to-programming-languages">Intro to Programming Languages</h1>
-<p>In the next few units, we&apos;ll learn about the three front-end languages: HTML, CSS and JavaScript. Before we dig in, let&apos;s take a look at the web ecosystem and how these languages fit in.</p>
-<h2 id="web-production-workflow">Web Production Workflow</h2>
-<h4 id="how-does-an-idea-become-a-fully-developed-website">How does an idea become a fully-developed website?</h4>
-<p>Building a website begins with <strong>User Experience Design</strong>, often called UX Design or simply UX. The goal of UX Design is to make the site easy and exciting to use. A UX Designer will analyze the larger purpose of the site, and create sketches called wireframes that detail out every functionality the site needs in order to fulfill that purpose. Wireframes show how a user can navigate the different pages and sections of a site using basic layout and annotations. Wireframes are the blueprints of a website.</p>
-<p><img src="assets/intro-to-programming-languages/wireframe.jpg" alt=""></p>
-<p>When the wireframes are complete, they&apos;re often passed off to the <strong>Visual Design</strong> and <strong>Developer</strong> teams simultaneously. The Visual Designers decide how the site will look using layout, color, typography, images, video and more. Visual design is an important aspect of the web prodcution process&#x2013; not only for beautifying the web&#x2013; but because certain design elements can largely impact the usability of the site.</p>
-<p>As a general rule, a Developer team consists of <strong>Front End</strong> and <strong>Back End</strong> developers. Front End developers bring the designs to life with HTML, CSS, and JS. Back end developers give the website a &quot;memory&quot; by storing data using languages like PHP, Python, and Ruby.</p>
-<h2 id="front-end-vs-back-end">Front End vs Back End</h2>
-<p>Let&apos;s talk in more detail how the Front End differs from the Back End. Think of a web app like a retail clothing store.</p>
-<p>The Front End is the store itself&#x2009;&#x2014;&#x2009;it contains the things with which the buyer interacts. The store has an efficient structure (HTML); it has been fashionably styled and lit (CSS); and you can interact with it by trying on or purchasing clothes (JavaScript).</p>
-<p>Then, there are all the parts of the store you don&#x2019;t see: the loading dock where products are shipped, the break room where the staff schedule is posted, or the office where the accountant handles the finances. This is the Back End of the store.</p>
-<h4 id="front-end-languages">Front-end Languages</h4>
-<p>The &quot;Three Amigos&quot; or the three front-end languages are HTML, CSS, and JavaScript. Front End </p>
+<h1 id="comparison-and-logical-operators-and-booleans">Comparison and Logical Operators and Booleans</h1>
+<h2 id="comparison-and-equality-operators">Comparison and Equality Operators</h2>
+<p>Comparison and logical operators are useful in JS because they help us compare different conditions to one another.</p>
+<h4 id="comparison-operators">Comparison Operators</h4>
+<p>Comparison operators compare two values against one another and return a boolean value &#x2014; either <code>true</code> or <code>false</code>.</p>
+<p>Comparisons in JavaScript can be made using <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>, and work for both strings and numbers.</p>
+<p><img src="assets/logical-operators-boolean/comparison_operators.png" width="350"></p>
+<h4 id="equality-operators">Equality Operators</h4>
+<p>Now let&apos;s take a look at equality operators.</p>
+<p>Equality operators check to see whether two values are the same as, or equal to, one another.</p>
 <ul>
-<li><strong>HTML</strong> is like a noun: responsible for defining the content on the page, like images, headers, and paragraphs</li>
-<li><strong>CSS</strong> is like an adjective: responsible for describing styles like layout, size, and color of the content</li>
-<li><strong>JavaScript</strong> is like a verb: responsible for the behaviors and actions of the content, like drop-down menus</li>
+<li><p><strong>Equality</strong> (<code>===</code>) : This operator will accept any two types of data as inputs and (just like the comparison operators) evaluate to a Boolean value. It will only evaluate <code>true</code> if both sides are completely identical in data type and value.
+<br><u>For example</u>: <code>5 === 5</code> will evaluate to <code>true</code>, while <code>5 === &apos;5&apos;</code> will evaluate to <code>false</code> since, while the values are the same, <code>5</code> is a number and <code>&apos;5&apos;</code> is a string.</p>
+</li>
+<li><p><strong>Inequality</strong> (<code>!==</code>) : This operator will also accept any two types of data as inputs and evaluate to a Boolean value. It is essentially the reverse of the equality operator &#x2014; it compares two values to check that either the data type or value are <em>not</em> the same.
+<br><u>For example</u>: <code>5 !== 5</code> will evaluate to <code>false</code>, while <code>5 !== &apos;5&apos;</code> will evaluate to <code>true</code>.</p>
+</li>
 </ul>
-<h4 id="back-end-languages">Back-end Languages</h4>
-<p>Unlike Front End, which has only three languages, there are multiple back-end languages for the web: Ruby (Ruby on Rails), Node.js, PHP, Python, C++, and more. Java is another back-end language you may have heard of. Java is <em>not</em> JavaScript! Many novice programmers confuse the two, but they have very different functionalities.</p>
-<p>Responsibilities of the back-end languages include:</p>
-<ul>
-<li>Giving the application/webpage a &apos;memory&apos;: storing data, like usernames and passwords</li>
-<li>Talking to the database: getting, adding, removing, and updating data; like password resets</li>
-<li>Handling page requests: sending the correct page to the user, like a version of the home page where the user is logged in vs logged out</li>
-<li>Authenticating users: enabling users to access different areas of a site, like logging into an account</li>
-</ul>
-<h4 id="front-end-and-back-end-together">Front End and Back End Together</h4>
-<p>Let&apos;s imagine a user has logged in to their bank&apos;s website to view the balance on her checking account. Everything she sees on the screen is front-end code.</p>
-<p><img src="assets/intro-to-programming-languages/front-end-code-1.jpg" alt=""></p>
-<p>When she selects &apos;Checking Account&apos;, the back-end code kicks in. The website now finds her user information, which has been stored in a database. </p>
-<p><img src="assets/intro-to-programming-languages/back-end-code.jpg" alt=""></p>
-<p>The server returns a response containing our user&apos;s checking account information. Then the front-end takes over once again, displaying her information with HTML, CSS, and JS.</p>
-<p><img src="assets/intro-to-programming-languages/front-end-code-2.jpg" alt=""></p>
-<h2 id="test-yourself">Test yourself</h2>
-<p>Objective: Distinguish Between HTML, CSS, and JS</p>
-<p>Visit lyft.com. Try to fill in these blanks:</p>
+<h4 id="test-yourself">Test Yourself</h4>
+<p>Type each command given in the JS Bin Console below. Before you press enter, take a moment to think about what value the console will return.</p>
+<p>You may need to refresh the page if you cannot see the JS Bin Console.</p>
+<p><a class="jsbin-embed" href="https://jsbin.com/qiqufo/1/embed?console" target="_blank">JS Bin on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?3.35.12"></script></p>
 <ol>
-<li>The words &#x201C;Rides in Minutes&#x201D; appears due to <strong>__</strong>?</li>
-<li>The reason for which &#x201C;Rides in Minutes&#x201D;  is centered and white is due to <strong><em>_</em></strong>?</li>
-<li>Hover over the word &#x201C;Explore&#x201D; in the navigation menu. That animation is most likely due to <strong><em>_</em></strong>?</li>
+<li><code>8 &gt; 8</code></li>
+<li><code>8 &gt;= 8</code></li>
+<li><code>8 &lt; 8</code></li>
+<li><code>8 &lt; 13</code></li>
+<li><code>8 &lt;= 15</code></li>
+<li><code>7 === 7</code></li>
+<li><code>7 === &quot;7&quot;</code></li>
+<li><code>7 !== 7</code></li>
+<li><code>7 !== &quot;7&quot;</code></li>
+<li><code>6 === 7</code></li>
+<li><code>6 !== 7</code> </li>
 </ol>
+<h3 id="the-logical-operators-and-and-or">The Logical Operators AND and OR</h3>
+<p>The logical operators OR (<code>||</code>), AND (<code>&amp;&amp;</code>) and NOT (<code>!</code>) give us the ability to control the flow of our programs. </p>
+<p><img src="assets/logical-operators-boolean/logical_operators.png" width="200px"></p>
+<p>The boolean operators <code>!</code>, <code>||</code>, and <code>&amp;&amp;</code> follow a set of rules that determine how they behave:</p>
+<ul>
+<li>NOT(<code>!</code>): Evaluates whether a value is <em>not</em> true.</li>
+<li>OR (<code>||</code>): Evaluates whether <em>at least one</em> value is true.</li>
+<li>AND <code>(&amp;&amp;):</code> Evaluates whether <em>both</em> values are true.</li>
+</ul>
+<h3 id="all-together-now-combining-operators-and-comparators">All Together Now: Combining Operators and Comparators</h3>
+<p>Often we need to combine individual logical statements into larger and larger expressions.</p>
+<p>For example, all the following criteria need to be <code>true</code> before I will agree to purchase a vintage bicycle:</p>
+<pre><code>make: Schwinn
+model: Colegiate
+year: 1975-1985
+price (max): 125.25
+</code></pre><p>We can translate each of these criterian into code using comparison operators as follows:</p>
+<pre><code class="lang-js">make === <span class="hljs-string">&quot;Schwinn&quot;</span>
+model === <span class="hljs-string">&quot;Colegiate&quot;</span>
+year &lt; <span class="hljs-number">1985</span>
+year &gt;= <span class="hljs-number">1975</span>
+price &lt;= <span class="hljs-number">125.25</span>
+</code></pre>
+<p>Next we can combine them together using our logical operators:</p>
+<pre><code class="lang-js">make === <span class="hljs-string">&quot;Schwinn&quot;</span> &amp;&amp; model === <span class="hljs-string">&quot;Colegiate&quot;</span> &amp;&amp; year &lt; <span class="hljs-number">1985</span> &amp;&amp; year &gt;= <span class="hljs-number">1975</span> &amp;&amp; price &lt;= <span class="hljs-number">125.25</span>
+</code></pre>
+<p>But what if I&apos;d also settle for any make/model of bicycle, from any year, if the price was right (which is to say, free)? Is there a way I could incorporate that into my expression in a single line? There sure is!</p>
+<p>Price is the most important factor, so let&apos;s address that first!</p>
+<pre><code class="lang-js">price === <span class="hljs-number">0</span> || make === <span class="hljs-string">&quot;Schwinn&quot;</span> &amp;&amp; model === <span class="hljs-string">&quot;Colegiate&quot;</span> &amp;&amp; year &lt; <span class="hljs-number">1985</span> &amp;&amp; year &gt;= <span class="hljs-number">1975</span> &amp;&amp; price &lt;= <span class="hljs-number">125.25</span>
+</code></pre>
+<p>You can definitely squeeze it all into a single line of JavaScript... but we may need some better tools to handle all this complexity!</p>
+<p>In the next lesson we&apos;ll take a look at how we can do just that using conditionals.</p>
 <hr>
-<p>Now that we&apos;ve seen how HTML, CSS and JavaScript fit together, let&apos;s take a look at how you can start to <a href="think-like-a-developer.html">think like a developer</a></p>
+<p><a href="conditionals.html">On to the next lesson!</a></p>
 
                     
                     </section>
@@ -640,10 +664,10 @@
         </div>
 
         
-        <a href="../01_unit/developer-foundations-intro.html" class="navigation navigation-prev " aria-label="Previous page: Developer Foundations"><i class="fa fa-angle-left"></i></a>
+        <a href="../07_unit/control-flow-intro.html" class="navigation navigation-prev " aria-label="Previous page: Control Flow in JS"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../01_unit/think-like-a-developer.html" class="navigation navigation-next " aria-label="Next page: Think Like a Developer"><i class="fa fa-angle-right"></i></a>
+        <a href="../07_unit/conditionals.html" class="navigation navigation-next " aria-label="Next page: Conditionals"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
