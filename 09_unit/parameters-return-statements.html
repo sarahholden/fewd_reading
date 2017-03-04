@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Data Types | Fundamentals</title>
+        <title>Parameters and Return Statements | Fundamentals</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.0">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../07_unit/expressions-evals.html" />
+    <link rel="next" href="../09_unit/scope.html" />
     
     
-    <link rel="prev" href="../07_unit/pseudocode.html" />
+    <link rel="prev" href="../09_unit/defining-calling-functions.html" />
     
 
         
@@ -42,7 +42,7 @@
     
 
         
-    <div class="book" data-level="5.2" data-basepath=".." data-revision="Sat Mar 04 2017 09:40:48 GMT-0600 (CST)">
+    <div class="book" data-level="6.2" data-basepath=".." data-revision="Sat Mar 04 2017 09:40:48 GMT-0600 (CST)">
     
 
 <div class="book-summary">
@@ -412,7 +412,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.2" data-path="07_unit/data-types.html">
+        <li class="chapter " data-level="5.2" data-path="07_unit/data-types.html">
             
                 
                     <a href="../07_unit/data-types.html">
@@ -523,7 +523,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="09_unit/parameters-return-statements.html">
+        <li class="chapter active" data-level="6.2" data-path="09_unit/parameters-return-statements.html">
             
                 
                     <a href="../09_unit/parameters-return-statements.html">
@@ -649,191 +649,185 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p><strong>WDI Fundamentals Unit 7</strong></p>
+                        <p><strong>WDI Fundamentals Unit 9</strong></p>
 <hr>
-<h1 id="data-types-and-variables">Data Types and Variables</h1>
-<h2 id="intro-to-variables">Intro to Variables</h2>
-<p>Variables are used to store data types into the memory of the computer so that they can be referenced later.</p>
-<p>Think of them as special containers that can hold information for you.</p>
-<p><img src="assets/data-types/variable_container.png" width="150"></p>
-<p>In order to use a variable in JS, you must announce that you want to use it.</p>
-<p>You make this announcement by using the keyword <code>var</code> and declaring a variable name next to it.</p>
-<p><img src="assets/data-types/var.png" alt=""></p>
-<blockquote>
-<p>Note: There must be a space after the keyword var.</p>
-</blockquote>
-<p>Now that we&apos;ve declared our variable names, we need to give them values.</p>
-<p>If you declare a variable without assigning any value to it, its value is <code>undefined</code>.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> name; 
-<span class="hljs-comment">// =&gt; undefined</span>
-</code></pre>
-<p>So let&apos;s try assigning a value to variable:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&apos;Bill&apos;</span>; <span class="hljs-comment">// the variable &quot;name&quot; gets assigned the string &apos;Bill&apos;</span>
+<h1 id="parameters-and-return-statements">Parameters and Return Statements</h1>
+<p>Now that we know how to call functions, let&apos;s see how we can add more details to our functions through parameters and arguments.</p>
+<h3 id="why-are-parameters-useful">Why are parameters useful?</h3>
+<p>Let&apos;s imagine that we are tasked with creating a program to calculate the total amount, including sales tax, for each item at a coffee shop. </p>
+<p>Take a look at this function that will calculate the total amount for a latte:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> latteTotal = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">var</span> price = <span class="hljs-number">4.50</span>;
+  <span class="hljs-keyword">var</span> salesTaxRate = <span class="hljs-number">.10</span>;
+  <span class="hljs-keyword">var</span> totalAmount = price + (price * salesTaxRate);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;The total is $&quot;</span> + totalAmount);
+};
 
-name;
-=&gt; <span class="hljs-string">&apos;Bill&apos;</span> <span class="hljs-comment">// the variable &quot;name&quot; now is the same as writing the string &apos;Bill&apos;</span>
+latteTotal();
 </code></pre>
-<p>Notice that the value is a word (not a number), so we put quotation marks around it.</p>
-<p>We always put quotation marks around strings (values that consists of letters and/or other characters). We&apos;ll be talking about strings later in this lesson.</p>
-<blockquote>
-<p>Note: The <code>// =&gt;</code> in the above example shows what the output will be when you type the line above it into the console and hit enter. For exercises and checkpoints, you will never have to actually type out any lines with <code>// =&gt;</code> into the console.</p>
-</blockquote>
-<h4 id="variable-syntax">Variable Syntax</h4>
-<p>Notice the space before and after the <code>=</code> sign and the semicolon after the string.</p>
-<p>Making sure these are in place is a good habit to develop and will be important for when your code gets more complicated later on.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;Bill&quot;</span>;
+<p>What would we do if we also wanted to find the the total amount for Americanos?</p>
+<p>We could create another function for that total:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> americanoTotal = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">var</span> price = <span class="hljs-number">5.00</span>;
+  <span class="hljs-keyword">var</span> salesTaxRate = <span class="hljs-number">.10</span>;
+  <span class="hljs-keyword">var</span> totalAmount = price + (price * salesTaxRate);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;The total is $&quot;</span> + totalAmount);
+};
+
+americanoTotal();
 </code></pre>
-<p>JS is a programming language, and like any language it has its own grammar and rules of operation. Let&apos;s look at four rules of thumb:</p>
+<p>What if we wanted to find the total for every item in the coffee shop, including drinks and baked goods?</p>
+<p>We don&apos;t want to have to create a separate function for each item &#x2014; that&apos;s a lot of work on our end.</p>
+<p>It will also burden our program with repeated code, which we want to avoid.</p>
+<p>Remember, keep it DRY! (Don&apos;t Repeat Yourself).</p>
+<p>Wouldn&apos;t it be nice if we had some way to provide the total amount function with the information it needs to calculate the total, including sales tax, for any product?</p>
+<p>In this lesson, we&apos;ll take a look at how we can do just that using <strong>parameters</strong>.</p>
+<h3 id="syntax-parameters-and-arguments">Syntax - Parameters and Arguments</h3>
+<p><strong>Parameters</strong> are the names listed in the function definition.</p>
+<p>Let&apos;s take a look at how we can provide our function with a price for each item so we won&apos;t need to create a separate function every time we want to calculate the total amount for a product. </p>
+<p>We will also provide our function with the sales tax rate each time since the coffee shop has locations in different states.</p>
+<p>Let&apos;s take a look:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> calculateTotal = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(price, salesTaxRate)</span> </span>{
+  <span class="hljs-keyword">var</span> totalAmount = price + (price * salesTaxRate);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;The total is $&quot;</span> + totalAmount);
+};
+
+calculateTotal(<span class="hljs-number">5.5</span>, <span class="hljs-number">.10</span>);
+calculateTotal(<span class="hljs-number">4.75</span>, <span class="hljs-number">.12</span>);
+</code></pre>
+<p>Let&apos;s break this down:</p>
 <ol>
-<li>When creating/declaring a variable for the first time, use the <code>var</code> keyword.</li>
-<li>Variable names should be written in camelCase<ul>
-<li>The first letter of the first word should be lowercase and the first letter of any subsequent words should be uppercase.</li>
+<li>Notice that the parentheses after the word <code>function</code> are no longer empty! Here we have the words <code>price</code> and <code>salesTaxRate</code>. These are the <strong>parameters</strong>. Notice that our parameters are in a comma-separated list. Here we are telling our function that we are going to provide it with a <code>price</code> and a <code>salesTaxRate</code>.<ul>
+<li>There is nothing special about the words <code>price</code> and <code>salesTaxRate</code>. We are just using descriptive names in order to remember what information we are providing our function.</li>
 </ul>
 </li>
-<li>Add a space before and after the equal sign <code>=</code> .</li>
-<li>Statements need to end with a semicolon <code>;</code>.</li>
+<li>When we call the function, we provide it with the values for <code>price</code> and <code>salesTaxRate</code> like so: <code>calculateTotal(4.75, .10);</code>. These are called <strong>arguments</strong>. Each one of these arguments corresponds to a parameter in the function definition.<ul>
+<li>Order is important here. In the first example where the function is called above, the first argument that is provided, <code>5.5</code>, will correspond with the first parameter we provided for the function, <code>price</code>. The second argument, <code>.10</code>, will correspond with the second parameter, <code>salesTaxRate</code>. For the second example, what does <code>4.75</code> correspond to? <code>.12</code>?</li>
+</ul>
+</li>
 </ol>
-<p>Note that in JavaScript, the equal sign doesn&apos;t evaluate things the way it does in math; rather, it <em>assigns values</em> to things, like variables.</p>
-<p>We call this an <em>assignment operator</em>.</p>
-<h4 id="reassigning-variables">Reassigning Variables</h4>
-<p>JavaScript runs synchronously and top-down, meaning it updates itself to the latest information given (on the bottom).</p>
-<p>So the values we give our variables furthest down will overwrite any previous values given.</p>
-<p>Let&apos;s take a look at a brief example. Say that we want to create variables for a character&apos;s name, age and location.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;Marty McFly&quot;</span>;
-<span class="hljs-keyword">var</span> age = <span class="hljs-number">16</span>;
-<span class="hljs-keyword">var</span> location = <span class="hljs-string">&quot;Hill Valley&quot;</span>;
+<p>To write functions with more than one parameter, use a comma separated list:</p>
+<p>e.g., (parameter1, parameter2, parameter3, parameter4, etc.)</p>
+<p>Here is an example of a function with four parameters:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> greetUser = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(firstName, lastName, year, city)</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Hello &quot;</span> + firstName + <span class="hljs-string">&quot; &quot;</span> + lastName + <span class="hljs-string">&quot; born in &quot;</span>+ year + <span class="hljs-string">&quot; from &quot;</span> + city + <span class="hljs-string">&quot;!&quot;</span> );
+};
 </code></pre>
-<p>We can later replace, or reassign, the values of these variables like so:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&quot;Marty McFly&quot;</span>;
-<span class="hljs-keyword">var</span> age = <span class="hljs-number">16</span>;
-<span class="hljs-keyword">var</span> location = <span class="hljs-string">&quot;Hill Valley&quot;</span>;
-
-name = <span class="hljs-string">&quot;Doc Brown&quot;</span>;
-age = <span class="hljs-number">65</span>;
-location = <span class="hljs-string">&quot;Future Town&quot;</span>;
+<p>What would happen if we called the function with the following arguments?</p>
+<pre><code class="lang-js">greetUser(<span class="hljs-string">&quot;Bruce&quot;</span>, <span class="hljs-string">&quot;Wayne&quot;</span>, <span class="hljs-number">1939</span>, <span class="hljs-string">&quot;Gotham&quot;</span>);
 </code></pre>
-<p>Here&apos;s a brief video summarizing how to assign and reassign variables.</p>
-<p><iframe src="//fast.wistia.net/embed/iframe/66kaqbwoc1?seo=false" title="Wistia video player" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360"></iframe></p>
-<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
-
-
-<h4 id="syntax-guidelines">Syntax Guidelines</h4>
-<p>A good habit to help you avoid coding headaches: mind your syntax.</p>
-<p>Here are some syntax rules that are crucial to keep in mind:</p>
+<p>We would get this result:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// =&gt; &quot;Hello Bruce Wayne born in 1939 from Gotham!&quot;</span>
+</code></pre>
+<p>What would happen if we called the function with the same arguments in a different order?</p>
+<pre><code class="lang-js">greetUser(<span class="hljs-string">&quot;Bruce&quot;</span>, <span class="hljs-number">1939</span>, <span class="hljs-string">&quot;Gotham&quot;</span>, <span class="hljs-string">&quot;Wayne&quot;</span>);
+</code></pre>
+<p>We would get this result:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// =&gt; &quot;Hello Bruce 1939 born in Gotham from Wayne!&quot;</span>
+</code></pre>
+<p>Take a look at this chart summarizing parameters and arguments:</p>
+<p><img src="http://circuits-assets.generalassemb.ly/prod/asset/5017/Slide-16-Chart.svg" alt=""></p>
+<h4 id="test-yourself">Test Yourself</h4>
+<p>Alright! Now it&apos;s time for you to test yourself.</p>
+<p>Refresh the page if you don&apos;t see the JS Bin Console below.</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/qozaziqodu/edit?js,console" target="_blank">JS Bin on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?3.40.3"></script></p>
 <ol>
-<li><p><strong>JS is case sensitive</strong></p>
-<p>For example: <code>numberofstudents</code> is not the same as <code>numberOfStudents</code>, which is not the same as <code>NuMbErOfStUdEnTs</code>.</p>
-<p>When you want to use a variable name consisting of several words, you will get an error if you have spaces between the words. Instead, you can combine all the words together into one long variable name. The first letter in this variable name should be lowercase, and then the first letter in each word that follows should be uppercase. This is called camelcase (see how it resembles a camel with humps)?</p>
-<p>Here&apos;s another example:
-<code>var camelsAreAwesome = true;</code></p>
+<li>In the &quot;JavaScript&quot; panel in JS Bin, define a function <code>makeCone</code>.</li>
+<li>It should accept two parameters, <code>flavor</code> and <code>numberScoops</code>.</li>
+<li><p>The function should take the parameters and log the following to the console: <code>&quot;Coming right up! One {flavor} ice cream cone with {numberScoops} scoops.&quot;</code></p>
+<blockquote>
+<p>Hint: You&apos;ll want to use string concatenation (<code>+</code>) to combine the variables with the human-readable text when logging the message to the console. </p>
+</blockquote>
 </li>
-<li><p><strong>End statements with a semicolon ;</strong></p>
-<p><code>x = x + 1;</code></p>
-<p>After each line of instruction, be sure to use a semicolon. Although you may be able to get away without using semicolons in some browsers, JavaScript often does nasty things when it guesses where to put semicolons itself. It&apos;s better to be explicit and tell the interpreter exactly where a statement should end.</p>
-</li>
+<li>Now, call that function, passing in <code>&quot;chocolate&quot;</code> and <code>3</code> as the arguments.</li>
+<li>Hit the &quot;Run&quot; button in the &quot;Console&quot; panel and you should see <code>&quot;Coming right up! One chocolate ice cream cone with 3 scoops.&quot;</code> displayed in the &quot;Console&quot; panel.</li>
 </ol>
+<p><br></p>
+<blockquote>
+<p>Answer:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> makeCone = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(flavor, numberScoops)</span> </span>{
+ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Coming right up! One &quot;</span> + flavor + <span class="hljs-string">&quot; ice cream cone with &quot;</span> + numberScoops + <span class="hljs-string">&quot; scoops.&quot;</span>);
+};
+
+makeCone(<span class="hljs-string">&quot;chocolate&quot;</span>, <span class="hljs-number">3</span>);
+</code></pre>
+</blockquote>
+<p>Great job!</p>
+<h2 id="return-statements">Return Statements</h2>
+<p>We now know how to communicate with functions in one direction, by passing values to functions using parameters and arguments.</p>
+<p>But, functions can also communicate back to you and return values.</p>
+<h4 id="why-use-return-statements">Why use return statements?</h4>
+<p>Sometimes we don&apos;t necessarily want to show or log something immediately to the console, or update something on the page.</p>
+<p>Instead, we might just want to update a variable within a function, or even call another function without showing its effects.</p>
+<p>To do this, we use a <code>return</code> statement.</p>
+<p>Let&apos;s look at an example of updating a variable within a function:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Here this function &quot;spits out&quot; the sum of the parameters x and y</span>
+<span class="hljs-keyword">var</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, y)</span> </span>{
+  <span class="hljs-keyword">return</span> x + y;
+};
+
+<span class="hljs-comment">// We then save that sum to the variable totalSum.</span>
+<span class="hljs-keyword">var</span> totalSum = sum(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>);
+<span class="hljs-comment">// =&gt; 7</span>
+<span class="hljs-comment">// The variable totalSum will now hold the value 7.</span>
+</code></pre>
+<h4 id="storing-a-return-value-in-a-variable">Storing a return value in a variable</h4>
+<p>The <code>return</code> statement <em>stops the execution of a function</em> and returns a value from that function.</p>
+<p>When we <code>return</code> something, it ends the function&apos;s execution and &quot;spits out&quot; whatever we are returning.</p>
+<p>We can then store this returned value in another variable.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> addBonusPoints = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(score)</span> </span>{
+    <span class="hljs-keyword">if</span> (score &gt; <span class="hljs-number">50</span>) {
+        <span class="hljs-keyword">return</span> score + (score * <span class="hljs-number">.10</span>);
+          <span class="hljs-comment">// if score is 55, then 60.5 will be returned</span>
+    }
+
+    <span class="hljs-keyword">return</span> score;
+};
+
+<span class="hljs-keyword">var</span> totalPoints = addBonusPoints(<span class="hljs-number">55</span>);
+<span class="hljs-comment">// =&gt; 60.5</span>
+<span class="hljs-comment">// The variable totalPoints will now hold 60.5</span>
+</code></pre>
+<ol>
+<li>Because the score in this case is greater than 50, we will hit the return statement <code>return score + (score * .10);</code> and the function will stop running after that point.</li>
+<li>This means that the code inside the function block that is below the <code>return</code> statement will never be executed and will be ignored completely.</li>
+</ol>
+<p>Pretty powerful, right?</p>
+<h4 id="exiting-a-function">Exiting a function</h4>
+<p>We can also use <code>return;</code> by itself as a way to exit the function and prevent any code after it from running.</p>
+<p>Take a look at this example:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> rockAndRoll = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(muted)</span> </span>{
+   <span class="hljs-keyword">var</span> song = <span class="hljs-string">&quot;It&apos;s only Rock &apos;N&apos; Roll&quot;</span>;
+   <span class="hljs-keyword">var</span> artist = <span class="hljs-string">&quot;Rolling Stones&quot;</span>;
+
+   <span class="hljs-keyword">if</span> (muted === <span class="hljs-literal">true</span>) {
+       <span class="hljs-keyword">return</span>; <span class="hljs-comment">// Here we use return as a way to exit a function, instead of returning any value</span>
+   }
+
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Now playing: &quot;</span> + song + <span class="hljs-string">&quot; by &quot;</span> + artist);
+};
+
+rockAndRoll(<span class="hljs-literal">true</span>);
+</code></pre>
+<p>Here, we use <code>return;</code> as a way to exit the function instead of returning any value.</p>
+<p>So when we call the function passing in <code>true</code> as an argument for <code>muted</code>, this statement will never run:</p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Now playing: &quot;</span> + song + <span class="hljs-string">&quot; by &quot;</span> + artist);
+</code></pre>
 <h3 id="test-yourself">Test Yourself</h3>
-<p>For the exercises in this lesson, you will be using the <a href="https://jsbin.com/?console" target="_blank">JS Bin Console</a>. Here are the steps to take for each exercise:</p>
+<p>Alright! Now it&apos;s time for you to test yourself.</p>
+<p>Refresh the page if you don&apos;t see the JS Bin Console below.</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/koraxan/edit?js,console" target="_blank">JS Bin on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?3.40.3"></script></p>
+<p>Take a look at the function provided in the JS Bin session above.</p>
+<p>Where will the function stop if we provide the following values for <code>number</code> when we call the function? What value will be returned in each case?</p>
 <ul>
-<li>Open the <a href="https://jsbin.com/?console" target="_blank">JS Bin Console</a> in Chrome, or complete the exercise in the JS Bin widget on this page. You may need to refresh the page if you do not see the console below.</li>
-<li>Type your JavaScript into the console tab.</li>
-<li>Hit the enter/return key to run that line of code.</li>
-<li>You can click the &quot;Clear&quot; button to clear the console when you want a clean slate.</li>
+<li>5</li>
+<li>10</li>
+<li>20</li>
 </ul>
-<p><a class="jsbin-embed" href="https://jsbin.com/qiqufo/1/embed?console" target="_blank">JS Bin on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?3.35.12"></script></p>
-<h4 id="step-1">Step 1</h4>
-<p>Create the following variables (resist the urge to copy/paste, get practice typing these out!):</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&apos;Susan Smith&apos;</span>;
-<span class="hljs-keyword">var</span> age = <span class="hljs-number">20</span>;
-<span class="hljs-keyword">var</span> hometown = <span class="hljs-string">&quot;Hawaii&quot;</span>;
-</code></pre>
-<p>You may see <code>undefined</code> displayed in the console after declaring each variable and hitting the return key:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&apos;Susan Smith&apos;</span>;
-<span class="hljs-comment">// =&gt; undefined</span>
-</code></pre>
-<p>Don&apos;t worry too much about why <code>undefined</code> is being displayed for now, but just be aware that this is the expected behavior.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-4x fa-lightbulb-o"></strong>
-<p>  You may have noticed that each of those lines ended in a <code>;</code> &#x2014; in
-JavaScript, a semicolon is used to denote the end of a line. Although your code
-may execute without them, there may be cases where a missing semicolon could cause
-unexpected results. It&apos;s best to just get in the habit of using them.</p>
+<p>Check yourself by calling the function three times in the &quot;Console&quot; panel in JS Bin (the right panel), passing in each number above as the argument for <code>number</code>.</p>
+<blockquote>
+<p>Hint: To call the function, use the following syntax: <code>functionName(argument)</code>.</p>
 </blockquote>
-<h4 id="step-2">Step 2</h4>
-<p>Now try checking, or accessing, the values of the three variables by typing each variable name and hitting enter:</p>
-<pre><code class="lang-js">name;
-age;
-hometown;
-</code></pre>
-<h4 id="step-3">Step 3</h4>
-<p>Then update (reassign) the value of each variable to your own first and last name, your own age, and your own location.</p>
-<p>For example:</p>
-<pre><code class="lang-js">name = <span class="hljs-string">&apos;Amy Hill&apos;</span>;
-age = <span class="hljs-number">25</span>;
-hometown = <span class="hljs-string">&quot;San Francisco&quot;</span>;
-</code></pre>
-<h4 id="step-4">Step 4</h4>
-<p>Now try checking, or accessing, the values of the three variables by typing each variable name and hitting enter:</p>
-<pre><code class="lang-js">name;
-age;
-hometown;
-</code></pre>
-<h4 id="summary">Summary</h4>
-<p>We can redefine our variables <code>name</code>, <code>age</code>, and <code>hometown</code> as many times as we want. However, <strong><em>only the most recent value of each variable is retained</em></strong> Once a variable is redefined, its original value is lost forever.</p>
-<p>Consider the following JavaScript code:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>;
-x
-<span class="hljs-comment">// =&gt; 1</span>
-x = <span class="hljs-number">2</span> + x;
-<span class="hljs-comment">// =&gt; 3</span>
-x;
-<span class="hljs-comment">// =&gt; 3</span>
-</code></pre>
-<ul>
-<li>On the first line, we are <em>assigning</em> the variable <code>x</code>, setting it equal to the integer <code>1</code>. </li>
-<li>Then, on the next line, we are <em>reassigning</em> the variable <code>x</code>, setting it equal to the following: <code>2</code> plus the most recent value of x (in this case, <code>1</code>). </li>
-<li><code>x</code> would now be equal to the integer <code>3</code>.  </li>
-</ul>
-<p>Suppose we ran the following lines of code in order, one by one.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">10</span>;
-x = <span class="hljs-number">1</span>;
-x = <span class="hljs-number">5</span>;
-x = <span class="hljs-number">15</span>;
-x + <span class="hljs-number">2</span>;
-</code></pre>
-<p>What does that last line evaluate to? Or, put differently, what is the most recent value of <code>x</code> (as of line 4) + 2? If you guessed 17, you&apos;re correct! Is <code>x</code>&apos;s value now 17? Not so fast! The last time a value was assigned to <code>x</code> was on line 4, so <code>x</code> is still 15. What if we had said <code>x = x + 2</code>?</p>
-<h2 id="data-types">Data Types</h2>
-<p>We briefly mentioned earlier that you can add different types of values to JS variables. JS knows when you are using letters and when you are using numbers.</p>
-<p>This will be handy later on when you start combining words or adding numbers together in your code. For now, it&apos;s important to know that these distinctions are called data types.</p>
-<p><em>In computer science and computer programming, a data type or simply &apos;type&apos; is a classification identifying one of various types of data that determines the possible values for that type, the operations that can be done on values of that type, the meaning of the data, and the way values of that type can be stored.</em>  </p>
-<p>Data types are really similar across different languages.</p>
-<p>What this means is that being confident in working with these concepts critically will enable you to walk into any programming language with some base knowledge that is translatable.</p>
-<p><img src="assets/data-types/data-types-chart.png" alt="Data Types Chart"></p>
-<p>We&apos;ll elaborate on all of these &#x2014; except Booleans, for now.</p>
-<h4 id="numbers-vs-strings">Numbers vs. Strings</h4>
-<p>Notice that in JavaScript, you do not need to declare what type of data you are using.</p>
-<p>For example, when you code:</p>
-<pre><code>var a = 13;
-var b = &quot;thirteen&quot;;
-</code></pre><p>JS will know that <code>var a</code> is a number and that var b is a string because strings always have quotation marks. Using quotation marks is a way of communicating with the processor what type of data to expect.</p>
-<p>If you put quotations marks around a number, like so <code>&quot;9&quot;</code>, the processor will read it as a string. You should always be mindful of the type of data you use moving forward.</p>
-<h4 id="strings">Strings</h4>
-<p>Strings are collections of letters and symbols known as <em>characters</em>, and we use them to deal with words and text in JavaScript. They come in two varieties, &apos;single-quote&apos; and &quot;double-quote&quot;. </p>
-<p>Although there are some differences between the two, don&apos;t worry about them for now. For the purposes of your work in Fundamentals, they will be interchangeable. </p>
-<p>Strings are typically used to store text for people to read.</p>
-<pre><code class="lang-js"><span class="hljs-string">&apos;John&apos;</span>
-<span class="hljs-string">&quot;Jane&quot;</span>
-<span class="hljs-string">&apos;123&apos;</span>
-</code></pre>
-<h4 id="numbers">Numbers</h4>
-<p>In JavaScript, numbers can always be divided into two groups:</p>
-<p><strong>Integers (whole numbers)</strong></p>
-<pre><code>..., -1,0, 2, 3, 4, 5, ...
-</code></pre><p><strong>Floats (decimals)</strong></p>
-<pre><code>2.718, 3.14, .5, .25, etc
-</code></pre><p>This means that JS numbers can be positive, negative, or have a decimal point.</p>
-<hr>
-<p><a href="expressions-evals.html">On to the next lesson!</a></p>
-<hr>
 
                     
                     </section>
@@ -844,10 +838,10 @@ var b = &quot;thirteen&quot;;
         </div>
 
         
-        <a href="../07_unit/pseudocode.html" class="navigation navigation-prev " aria-label="Previous page: Pseudocode"><i class="fa fa-angle-left"></i></a>
+        <a href="../09_unit/defining-calling-functions.html" class="navigation navigation-prev " aria-label="Previous page: Defining and Calling Functions"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../07_unit/expressions-evals.html" class="navigation navigation-next " aria-label="Next page: Expressions and Evaluations"><i class="fa fa-angle-right"></i></a>
+        <a href="../09_unit/scope.html" class="navigation navigation-next " aria-label="Next page: Scope"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
